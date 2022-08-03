@@ -136,6 +136,10 @@ const AddMovieModal = () => {
               <option value="">All</option>
               <option value="action">Action</option>
               <option value="adventure">Adventure</option>
+              <option value="comedy">Comedy</option>
+              <option value="drama">Drama</option>
+              <option value="fantasy">Fantasy</option>
+              <option value="historical">Historical</option>
             </select>
           </div>
           <div className="movieModalContainer_contentForm--container">

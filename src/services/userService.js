@@ -2,7 +2,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 export const serviceCreateUser = async (user) => {
   try {
-    const response = await fetch(`${API_URL}/users`, {
+    const response = await fetch(`${API_URL}/api/users`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export const serviceCreateUser = async (user) => {
 
 export const serviceUserById = async (id) => {
   try {
-    const response = await fetch(`${API_URL}/users/${id}`);
+    const response = await fetch(`${API_URL}/api/users/${id}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -28,7 +28,7 @@ export const serviceUserById = async (id) => {
 
 export const serviceUpdateUser = async (id, user) => {
   try {
-    const response = await fetch(`${API_URL}/users/${id}`, {
+    const response = await fetch(`${API_URL}/api/users/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

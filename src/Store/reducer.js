@@ -2,7 +2,7 @@ const initialState = {
   allMovies: [],
   oneMovieById: {},
   getUser: {},
-  displayModal: false
+  displayModal: false,
 };
 
 export default function reducer(state = initialState, action) {

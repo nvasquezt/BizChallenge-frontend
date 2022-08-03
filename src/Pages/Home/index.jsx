@@ -2,7 +2,11 @@ import React, { useEffect } from 'react';
 import AddMovieModal from '../../Components/AddMovieModal';
 import CardMovies from '../../Components/CardMovies';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionDisplayModal, thunkAllMovies} from '../../Store/actions';
+import { 
+  actionDisplayModal, 
+  thunkAllMovies,
+  thunkMoviesByQuery
+} from '../../Store/actions';
 import('./Home.scss');
 
 const Home = () => {
@@ -15,6 +19,13 @@ const Home = () => {
     dispatch(actionDisplayModal(true));
   }
 
+  const handleChangeQuery = (e) => {
+    if(e.target.value === 'all') {
+      dispatch(thunkAllMovies());
+    } else {
+      dispatch(thunkMoviesByQuery(e.target.value));
+    }
+  }
   useEffect(() => {
     dispatch(thunkAllMovies());
   }, [displayModal]);
@@ -26,19 +37,28 @@ const Home = () => {
         <h2 className="homeContainer_filter--title">Filter By: </h2>
         <div className="homeContainer_filterSelect">
           <h3 className="homeContainer_filterSelect--label">Category</h3>
-          <select className="homeContainer_filterSelect--select">
-            <option value="">All</option>
-            <option value="">Action</option>
-            <option value="">Adventure</option>
+          <select 
+          className="homeContainer_filterSelect--select" 
+          name="category"
+          onChange={ handleChangeQuery }
+          >
+            <option value="all">All</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="comedy">Comedy</option>
+            <option value="drama">Drama</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="historical">Historical</option>
           </select>
         </div>
       </section>
       <section className="homeContainer_movies">
         <h2 className="homeContainer_movies--title">Movies</h2>
         <div className="homeContainer_movies--container">
-          {allMovies.map((movie) => (
+          {allMovies.length>0 ? 
+          (allMovies.map((movie) => (
             <CardMovies
-              key={movie.id}
+              key={movie._id}
               image={movie.image}
               title={movie.title}
               year={movie.year}
@@ -46,8 +66,12 @@ const Home = () => {
               cast={movie.cast}
               synopsis={movie.synopsis}
               category={movie.category}
-            /> 
-          ))}
+            /> )
+          )) : (
+            <div className="homeContainer_movies--noMovies">
+              <p>No movies found</p>
+            </div>)
+          }
         </div>
       </section>
       <footer className="homeContainer_footer">
