@@ -1,4 +1,4 @@
-const API_URL = 'https://movies-challenge-be.herokuapp.com/'
+const API_URL = 'https://movies-challenge-be.herokuapp.com'
 
 export const serviceAllMovies = async () => {
   try {

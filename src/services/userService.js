@@ -1,4 +1,4 @@
-const API_URL = 'https://movies-challenge-be.herokuapp.com/'
+const API_URL = 'https://movies-challenge-be.herokuapp.com'
 export const serviceCreateUser = async (user) => {
   try {
     const response = await fetch(`${API_URL}/api/users`, {
