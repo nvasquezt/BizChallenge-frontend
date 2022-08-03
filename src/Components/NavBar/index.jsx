@@ -4,7 +4,6 @@ import { actionSignupModal } from '../../Store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   HOME_ROUTE,
-  LOGIN_ROUTE,
   PROFILE_ROUTE,
   FAVORITES_ROUTE,
 } from '../../Constants';
@@ -46,9 +45,6 @@ const NavBar = () => {
   } else {
     return (
       <nav className="navigationBar">
-        <NavLink className="navigationBar_link" to={LOGIN_ROUTE}>
-          Login
-        </NavLink>
         <button className="navigationBar_button" onClick={handleClick}>
           Signup
         </button>
