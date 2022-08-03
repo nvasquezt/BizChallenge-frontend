@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = 'https://movies-challenge-be.herokuapp.com/'
 
 export const login = async (loginInfo) => {
   try {
