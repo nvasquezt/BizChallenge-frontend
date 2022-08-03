@@ -1,6 +1,7 @@
 const initialState = {
   allMovies: [],
   oneMovie: {},
+  getUser: {}
 };
 
 export default function reducer(state = initialState, action) {
@@ -14,6 +15,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         oneMovie: action.payload,
+      };
+    case 'GET_USER':
+      return {
+        ...state,
+        getUser: action.payload,
       };
     default:
       return state;
