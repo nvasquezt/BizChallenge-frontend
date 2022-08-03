@@ -1,4 +1,8 @@
-import { serviceAllMovies, serviceMovieById, serviceMoviesByQuery } from '../services/moviesService';
+import {
+  serviceAllMovies,
+  serviceMovieById,
+  serviceMoviesByQuery,
+} from '../services/moviesService';
 import { serviceUserById } from '../services/userService';
 
 export const actionAllMovies = (movies) => {
@@ -27,14 +31,14 @@ export const actionDisplayModal = (display) => {
     type: 'DISPLAY_MODAL',
     payload: display,
   };
-}
+};
 
 export const actionMoviesByQuery = (movies) => {
   return {
     type: 'GET_MOVIES',
     payload: movies,
   };
-}
+};
 
 export const thunkAllMovies = () => async (dispatch) => {
   try {
@@ -63,7 +67,6 @@ export const thunkUserById = (id) => async (dispatch) => {
   }
 };
 
-
 export const thunkMoviesByQuery = (query) => async (dispatch) => {
   try {
     const movies = await serviceMoviesByQuery(query);
@@ -71,4 +74,4 @@ export const thunkMoviesByQuery = (query) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
-}
+};

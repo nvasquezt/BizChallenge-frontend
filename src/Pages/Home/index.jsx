@@ -2,30 +2,31 @@ import React, { useEffect } from 'react';
 import AddMovieModal from '../../Components/AddMovieModal';
 import CardMovies from '../../Components/CardMovies';
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-  actionDisplayModal, 
+import {
+  actionDisplayModal,
   thunkAllMovies,
-  thunkMoviesByQuery
+  thunkMoviesByQuery,
 } from '../../Store/actions';
+import { Link } from 'react-router-dom';
 import('./Home.scss');
 
 const Home = () => {
   const dispatch = useDispatch();
 
-  const displayModal = useSelector(state => state.displayModal);
-  const allMovies = useSelector(state => state.allMovies);
+  const displayModal = useSelector((state) => state.displayModal);
+  const allMovies = useSelector((state) => state.allMovies);
 
   const handleClick = () => {
     dispatch(actionDisplayModal(true));
-  }
+  };
 
   const handleChangeQuery = (e) => {
-    if(e.target.value === 'all') {
+    if (e.target.value === 'all') {
       dispatch(thunkAllMovies());
     } else {
       dispatch(thunkMoviesByQuery(e.target.value));
     }
-  }
+  };
   useEffect(() => {
     dispatch(thunkAllMovies());
   }, [displayModal]);
@@ -37,10 +38,10 @@ const Home = () => {
         <h2 className="homeContainer_filter--title">Filter By: </h2>
         <div className="homeContainer_filterSelect">
           <h3 className="homeContainer_filterSelect--label">Category</h3>
-          <select 
-          className="homeContainer_filterSelect--select" 
-          name="category"
-          onChange={ handleChangeQuery }
+          <select
+            className="homeContainer_filterSelect--select"
+            name="category"
+            onChange={handleChangeQuery}
           >
             <option value="all">All</option>
             <option value="action">Action</option>
@@ -55,23 +56,26 @@ const Home = () => {
       <section className="homeContainer_movies">
         <h2 className="homeContainer_movies--title">Movies</h2>
         <div className="homeContainer_movies--container">
-          {allMovies.length>0 ? 
-          (allMovies.map((movie) => (
-            <CardMovies
-              key={movie._id}
-              image={movie.image}
-              title={movie.title}
-              year={movie.year}
-              director={movie.director}
-              cast={movie.cast}
-              synopsis={movie.synopsis}
-              category={movie.category}
-            /> )
-          )) : (
+          {allMovies.length > 0 ? (
+            allMovies.map((movie) => (
+              <Link to={`/movie/${movie._id}`} key={movie._id + 1}>
+                <CardMovies
+                  key={movie._id}
+                  image={movie.image}
+                  title={movie.title}
+                  year={movie.year}
+                  director={movie.director}
+                  cast={movie.cast}
+                  synopsis={movie.synopsis}
+                  category={movie.category}
+                />
+              </Link>
+            ))
+          ) : (
             <div className="homeContainer_movies--noMovies">
               <p>No movies found</p>
-            </div>)
-          }
+            </div>
+          )}
         </div>
       </section>
       <footer className="homeContainer_footer">
@@ -84,7 +88,7 @@ const Home = () => {
           Add movie
         </button>
       </div>
-      {displayModal && ( <AddMovieModal /> )}
+      {displayModal && <AddMovieModal />}
     </div>
   );
 };

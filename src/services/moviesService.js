@@ -61,7 +61,6 @@ export const serviceDeleteMovie = async (id) => {
   }
 };
 
-
 export const serviceMoviesByQuery = async (query) => {
   try {
     const response = await fetch(`${API_URL}/api/movies/query`, {
@@ -70,8 +69,8 @@ export const serviceMoviesByQuery = async (query) => {
         'Content-Type': 'application/json',
       },
       params: {
-        query
-      }
+        query,
+      },
     });
     const data = await response.json();
     return data;

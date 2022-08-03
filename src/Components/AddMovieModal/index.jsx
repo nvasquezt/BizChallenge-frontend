@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { actionDisplayModal } from '../../Store/actions';
 import { serviceCreateMovie } from '../../services/moviesService';
-import './AddMovieModal.scss'
+import './AddMovieModal.scss';
 
 const AddMovieModal = () => {
   const [image, setImage] = useState(null);
-  const [ createMovie, setCreateMovie ] = useState({
+  const [createMovie, setCreateMovie] = useState({
     title: '',
     year: '',
     director: '',
     cast: '',
     synopsis: '',
     category: '',
-    image: 'https://res.cloudinary.com/dunrpkkpq/image/upload/v1659503550/Movies/movies-photo_pdkjk7.png'
-  })
+    image:
+      'https://res.cloudinary.com/dunrpkkpq/image/upload/v1659503550/Movies/movies-photo_pdkjk7.png',
+  });
   const dispatch = useDispatch();
-  
+
   const handleImageChange = (e) => {
     e.preventDefault();
     const file = e.target.files[0];
@@ -26,44 +27,54 @@ const AddMovieModal = () => {
   const handleChange = (e) => {
     setCreateMovie({
       ...createMovie,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const createMovieProcess = async () => {
       const formData = new FormData();
       formData.append('file', image);
-      formData.append("title", createMovie.title);
-      formData.append("year", createMovie.year);
-      formData.append("director", createMovie.director);
-      formData.append("cast", createMovie.cast);
-      formData.append("synopsis", createMovie.synopsis);
-      formData.append("category", createMovie.category);
+      formData.append('title', createMovie.title);
+      formData.append('year', createMovie.year);
+      formData.append('director', createMovie.director);
+      formData.append('cast', createMovie.cast);
+      formData.append('synopsis', createMovie.synopsis);
+      formData.append('category', createMovie.category);
       const response = await serviceCreateMovie(formData);
-      if (response !== undefined || response !== null || response.message !== "error") {
+      if (
+        response !== undefined ||
+        response !== null ||
+        response.message !== 'error'
+      ) {
         dispatch(actionDisplayModal(false));
       } else {
         console.log('error');
       }
-    }
+    };
     createMovieProcess();
-  }
+  };
 
   const handleCloseButton = () => {
     dispatch(actionDisplayModal(false));
-  }
+  };
   return (
     <div className="add-movie-modal">
       <div className="movieModalContainer">
-          <button className="movieModalContainer_closeButton" onClick={handleCloseButton}>
-            X
-          </button>
+        <button
+          className="movieModalContainer_closeButton"
+          onClick={handleCloseButton}
+        >
+          X
+        </button>
         <div className="movieModalContainer_head">
           <h1>Add Movie</h1>
         </div>
-        <form className="movieModalContainer_contentForm" onSubmit={handleSubmit}>
+        <form
+          className="movieModalContainer_contentForm"
+          onSubmit={handleSubmit}
+        >
           <div className="movieModalContainer_contentForm--container">
             <label className="movieModalContainer_contentForm--label">
               Title
@@ -72,7 +83,7 @@ const AddMovieModal = () => {
               className="movieModalContainer_contentForm--input"
               type="text"
               placeholder="Title"
-              name='title'
+              name="title"
               onChange={handleChange}
             />
           </div>
@@ -84,7 +95,7 @@ const AddMovieModal = () => {
               className="movieModalContainer_contentForm--input"
               type="text"
               placeholder="Year"
-              name='year'
+              name="year"
               onChange={handleChange}
             />
           </div>
@@ -96,7 +107,7 @@ const AddMovieModal = () => {
               className="movieModalContainer_contentForm--input"
               type="text"
               placeholder="Director"
-              name='director'
+              name="director"
               onChange={handleChange}
             />
           </div>
@@ -108,7 +119,7 @@ const AddMovieModal = () => {
               className="movieModalContainer_contentForm--input"
               type="text"
               placeholder="Cast"
-              name='cast'
+              name="cast"
               onChange={handleChange}
             />
           </div>
@@ -120,7 +131,7 @@ const AddMovieModal = () => {
               className="movieModalContainer_contentForm--input"
               type="text"
               placeholder="Synopsis"
-              name='synopsis'
+              name="synopsis"
               onChange={handleChange}
             />
           </div>
@@ -130,7 +141,7 @@ const AddMovieModal = () => {
             </label>
             <select
               className="movieModalContainer_contentForm--select"
-              name='category'
+              name="category"
               onChange={handleChange}
             >
               <option value="">All</option>
@@ -149,18 +160,20 @@ const AddMovieModal = () => {
             <input
               className="movieModalContainer_contentForm--inputImage"
               type="file"
-              name='image'
+              name="image"
               onChange={handleImageChange}
             />
           </div>
-          <button className="movieModalContainer_contentForm--button" type="submit">
+          <button
+            className="movieModalContainer_contentForm--button"
+            type="submit"
+          >
             Add movie
           </button>
         </form>
       </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default AddMovieModal
+export default AddMovieModal;
