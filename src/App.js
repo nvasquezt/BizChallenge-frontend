@@ -1,13 +1,8 @@
 import './App.css';
+import MainRouter from './Components/MainRouter';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-title">
-        <h1>Hello World</h1>
-      </header>
-    </div>
-  );
+  return <MainRouter />;
 }
 
 export default App;

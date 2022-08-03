@@ -20,7 +20,7 @@ const NavBar = () => {
       <Link
         to="/"
         onClick={() => {
-          sessionStorage.removeItem('token');
+          localStorage.removeItem('token');
           window.location.href = '/';
         }}
       >

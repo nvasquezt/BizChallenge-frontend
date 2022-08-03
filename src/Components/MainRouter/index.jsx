@@ -9,7 +9,7 @@ import {
 } from '../../Constants';
 import Home from '../../Pages/Home';
 import Login from '../../Pages/Login';
-import Signup from '../../Pages/Signup';
+import Signup from '../../Pages/SignUp';
 import Profile from '../../Pages/Profile';
 import Favorites from '../../Pages/Favorites';
 import NavBar from '../NavBar';
