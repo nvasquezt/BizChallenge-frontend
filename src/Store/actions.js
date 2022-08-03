@@ -33,6 +33,13 @@ export const actionDisplayModal = (display) => {
   };
 };
 
+export const actionSignupModal = (display) => {
+  return {
+    type: 'DISPLAY_SIGNUP_MODAL',
+    payload: display,
+  };
+};
+
 export const actionMoviesByQuery = (movies) => {
   return {
     type: 'GET_MOVIES',

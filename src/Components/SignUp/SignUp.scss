@@ -1,0 +1,105 @@
+.signup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5rem);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpContainer {
+    width: 40vw;
+    height: 70vh;
+    background-color: #ffffffcf;
+    border-radius: 0.25rem;
+    box-shadow: #5a5a5a 0 0.05rem 0.05rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+
+    &_buttonClose {
+        position: absolute;
+        height: 2rem;
+        width: 2rem;
+        top: 3.5rem;
+        right: 25.8rem;
+        cursor: pointer;
+        background-color: rgb(188, 1, 1);
+        border-radius: 0.2rem;
+        z-index: 3;
+        color: rgb(255, 255, 255);
+        border: none;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &_title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #35037f;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    &_contentForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 1rem;
+
+        &--container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 0.5rem;
+        }
+
+        &--label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #35037f;
+            text-align: fle;
+            margin-bottom: 0.5rem;
+        }
+
+        &--input {
+            width: 100%;
+            height: 1rem;
+            border-radius: 0.2rem;
+            border: 1px solid #5a5a5a;
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #5a5a5a;
+            margin-bottom: 0.5rem;
+        }
+
+        &--button {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 2rem;
+            border-radius: 0.3rem;
+            background-color: #35037f;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 4rem;
+            cursor: pointer;
+        }
+    }
+}
+    
+    

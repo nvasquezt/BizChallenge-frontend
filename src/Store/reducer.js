@@ -3,6 +3,7 @@ const initialState = {
   oneMovieById: {},
   getUser: {},
   displayModal: false,
+  displaySignupModal: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -26,6 +27,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         displayModal: action.payload,
+      };
+    case 'DISPLAY_SIGNUP_MODAL':
+      return {
+        ...state,
+        displaySignupModal: action.payload,
       };
     default:
       return state;

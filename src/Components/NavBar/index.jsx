@@ -1,15 +1,24 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { actionSignupModal } from '../../Store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   HOME_ROUTE,
   LOGIN_ROUTE,
-  SIGNUP_ROUTE,
   PROFILE_ROUTE,
   FAVORITES_ROUTE,
 } from '../../Constants';
 import './NavBar.scss';
+import SignUp from '../SignUp';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const displaySignupModal = useSelector((state) => state.displaySignupModal);
+
+  const handleClick = () => {
+    dispatch(actionSignupModal(true));
+  }
+
   if (localStorage.getItem('token')) {
     return (
       <nav className="navigationBar">
@@ -40,9 +49,10 @@ const NavBar = () => {
         <NavLink className="navigationBar_link" to={LOGIN_ROUTE}>
           Login
         </NavLink>
-        <NavLink className="navigationBar_link" to={SIGNUP_ROUTE}>
+        <button className="navigationBar_button" onClick={handleClick}>
           Signup
-        </NavLink>
+        </button>
+        { displaySignupModal && <SignUp /> }
         <NavLink className="navigationBar_link" to={HOME_ROUTE}>
           Home
         </NavLink>

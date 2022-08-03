@@ -32,4 +32,16 @@
             color: #a063fd;
         }
     }
+
+    &_button {
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            motion: hover;
+            transition: all 0.3s ease-in-out;
+            color: #a063fd;
+        }
+    }
 }
