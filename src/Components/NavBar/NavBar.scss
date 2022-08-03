@@ -4,6 +4,8 @@
     left: 0;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 0.25rem;
+    box-shadow: #5a5a5a 0 0.05rem 0.05rem 0;
     display: flex;
     flex-direction: row-reverse;
     gap: 2rem;
@@ -11,18 +13,23 @@
     padding: 0.3rem 2rem 0.3rem 0;
     border-bottom: 1px solid #5a5a5a;
     border-top: 1px solid #5a5a5a;
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
     &:hover {
         motion: hover;
         transition: all 0.3s ease-in-out;
         border-bottom: 1px solid #35037f;
         border-top: 1px solid #35037f;
+        box-shadow: #35037f 0 0.05rem 0.05rem 0;
     }
     
     &_link {
         &:hover {
             motion: hover;
             transition: all 0.3s ease-in-out;
-            color: #35037f;
+            color: #a063fd;
         }
     }
 }

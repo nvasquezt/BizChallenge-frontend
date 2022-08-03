@@ -1,0 +1,105 @@
+.add-movie-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.5rem);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.movieModalContainer {
+    position: fixed;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    height: 70vh;
+    background-color: #35037fad;
+    z-index: 100;
+    border-radius: 0.5rem;
+    scrollbar-width: none;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &_closeButton {
+        position: absolute;
+        height: 2rem;
+        width: 2rem;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        background-color: rgb(188, 1, 1);
+        border-radius: 0.2rem;
+        z-index: 3;
+        color: rgb(255, 255, 255);
+        border: none;
+        font-weight: bold;
+    }
+
+    &_head {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &_contentForm {
+        padding-right: 1rem;
+
+        &--container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0.25rem;
+        }
+
+        &--label {
+            font-size: 1.2rem;
+            color: rgb(255, 255, 255);
+            padding-bottom: 0.2rem;
+        }
+
+        &--input {
+            width: 100%;
+            height: 2.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: rgb(39, 34, 34);
+        }
+        &--inputImage {
+            width: 100%;
+            height: 2.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            padding: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+        }
+
+        &--button {
+            width: 100%;
+            height: 2.5rem;
+            border: 0.1rem solid #ccc;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: rgb(39, 34, 34);
+            background-color: rgb(255, 255, 255);
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+    }
+}

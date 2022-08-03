@@ -22,6 +22,13 @@ export const actionUserById = (user) => {
   };
 };
 
+export const actionDisplayModal = (display) => {
+  return {
+    type: 'DISPLAY_MODAL',
+    payload: display,
+  };
+}
+
 export const thunkAllMovies = () => async (dispatch) => {
   try {
     const movies = await serviceAllMovies();
