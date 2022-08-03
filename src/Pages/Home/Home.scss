@@ -1,0 +1,78 @@
+.homeContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: flex-start;
+  
+  &_title {
+    margin-top: 2rem;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    height: 10vh;
+    justify-content: center;
+    width: 90vw;
+  }
+  &_filter {
+    align-items: flex-start;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: center;
+    width: 90vw;
+  }
+  
+  &_filterSelect {
+  align-items: center;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-size: 1rem;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: 1rem;
+  width: 90vw;
+  }
+  
+  &_movies {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    height: 90vh;
+    justify-content: center;
+    width: 90vw;
+  }
+  &_footer {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    height: 10vh;
+    justify-content: center;
+    width: 90vw;
+    padding-bottom: 1rem;
+  }
+  &_button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #35037f;
+    cursor: pointer;
+    
+    &:hover {
+      motion: hover;
+      transition: all 0.5s ease-in-out;
+      background-color: #4c00ff;
+      color: #ffffff;
+    }
+  }
+}
